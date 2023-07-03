@@ -1,0 +1,29 @@
+paginacion del index y las busquedas
+procesos mas separados
+Eliminacion de imagenes junto con las entradas
+Bug del administrador arreglado
+Verificacion que los nuevos usuarios tengan un email unico
+
+
+mensajes emergentes en 
+editarC.php
+
+Detalles por mejorar: 
+cambiar validacion de email
+si la consulta la consulta para preguntar si el email esta en la DB
+davuelve algo diferente de null, entonces no se procede.
+
+validar la informacion al editar un usuario
+
+crear funcion para escapar datos.
+Caracteres que pueden romper el texto
+1. Comillas simples ('')
+ 
+2. Comillas dobles ("")
+ 
+3. Barras invertidas (\)
+ 
+4. Caracteres nulos (\0)
+ 
+5. Caracteres de control: Algunos caracteres de control, como el salto de línea (\n) o el retorno de carro (\r), pueden causar problemas si no se manejan correctamente al manipular una cadena de texto.
+Si en una cadena se encuentra uno de estos elementos, anteponerle una \

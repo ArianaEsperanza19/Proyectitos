@@ -1,0 +1,202 @@
+@font-face{
+    font-family: "fajala";
+    src: url("../assets/fuente.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0%;
+    font-family: "fajala";
+    text-decoration: none;
+}
+
+body{
+    background: url("../assets/cubes.png") #f4f4f4;
+}
+
+header{
+    width: 200px;
+    height: 100px;
+    background: transparent;
+    margin: 0px auto;
+    float: right;
+    
+}
+
+#nav{
+    clear: both;
+    width: 1000px;
+    height: 40px;
+    display: inline-block;
+    
+}
+
+.link{
+    color: rgb(103, 106, 255);
+}
+
+nav ul{
+    list-style: none;
+    height: 30px;
+}
+
+nav ul li{
+    float: left;
+    line-height: 40px;
+    padding-left: 28px;
+    padding-right: 10px;
+    font-size: 20px;
+    display: block;
+}
+
+#buscador{
+    float: right;
+    padding-top: 5px;
+    position: relative;
+    bottom: 30px;
+    
+}
+
+#principal{
+    width: 70%;
+    min-height: 900px;
+    margin: 0px auto;
+    margin-bottom: 30px;
+    float: left;
+    padding-right: 5%;
+    padding-left: 2%;
+}
+
+
+#pie{
+    clear: both;
+    width: 100%;
+    background-color: black;
+    border-bottom: none;
+    color: white;
+    margin: 0% auto;/*Para centrar*/
+    text-align: center;
+    padding: 20px;
+}
+
+aside{
+    margin-top: 70px;
+    height: 900px;  
+}
+
+.clearfix{
+    clear: both;
+    float: none;
+    
+}
+
+#Img{
+    width: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: rgb(103, 106, 255);
+}
+
+#marco{
+    width: 800px;
+    margin: 0% auto;/*Para centrar*/
+    text-align: center;
+    clear: both;
+    float: none;
+}
+
+#biografia{
+    font-size: 16px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logos{
+    width: 5%;
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 40px;
+    clear: both;
+    float: none;
+    text-align: center;
+}
+
+#logocaja{
+    text-align: center;
+}
+
+.mensajes{
+    width: 30%;
+    margin: 0% auto;/*Para centrar*/
+    text-align: center;
+    clear: both;
+    float: none;
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.button {
+    background-color: rgb(103, 106, 255);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonUSER{
+    background-color: rgb(103, 106, 255);
+    border: none;
+    width: 170px; 
+    color: white;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+ 
+}
+
+#Panel_user{
+    position: relative;
+    top: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0% auto;
+    text-align: center;
+    clear: both;
+    width: 500px;
+    border: solid 1px rgb(103, 106, 255);
+    
+}
+
+.formularios{
+    border: solid 1px rgb(103, 106, 255);
+    position: relative;
+    margin: 0% auto;
+    text-align: center;
+    clear: both;
+    padding: 10px;
+    display: block;
+}
+
+.bookmark {
+    border: 2px solid rgb(103, 106, 255);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
