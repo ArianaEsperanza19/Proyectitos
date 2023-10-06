@@ -42,4 +42,5 @@ if (isset($_GET['entrada'])) {
 
 <?php
 require_once("pie.php");
+$Objeto_conexion->cerrar();
 ?>

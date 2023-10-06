@@ -56,5 +56,6 @@ if (@$_POST['crear']) {
         }
             ?>
             </ul>
-        <?php }; ?>
+        <?php }; 
+        $Objeto_conexion->cerrar();?>
 </div>

@@ -3,8 +3,8 @@
 function Registrarse($nombre, $apellido, $email, $contrasenya, $conexion)
 {
     $tabla = 'usuarios';
-    $sql = "INSERT INTO $tabla(`id`, `nombres`, `apellidos`, `email`, `contrasenya`) 
-    VALUES(NULL,`$nombre`,`$apellido`,`$email`,`$contrasenya`);";
+    $sql = "INSERT INTO $tabla(id, nombres, apellidos, email, contrasenya) 
+    VALUES(NULL,'$nombre','$apellido','$email','$contrasenya');";
     //var_dump($sql);
     $conexion->ejecutar($sql);
     echo "<script>swal('Perfecto','Usuario registrado', 'success');</script>";

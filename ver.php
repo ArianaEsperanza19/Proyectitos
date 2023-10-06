@@ -17,7 +17,7 @@ $entradas = $Objeto_conexion->consultar($sql);
 <?php   
 
 ModelarEntradaVer($entradas, $Objeto_conexion);
-
+$Objeto_conexion->cerrar();
 ?>
 
 

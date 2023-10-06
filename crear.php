@@ -70,4 +70,5 @@ if (@$_POST && @$_FILES['img']) {
 
 <?php
 require_once("pie.php");
+$Objeto_conexion->cerrar();
 ?>

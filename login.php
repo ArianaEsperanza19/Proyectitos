@@ -41,4 +41,5 @@ if ($_POST) {
 
 <?php
 require_once("pie.php");
+$conexion->cerrar();
 ?>

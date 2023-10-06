@@ -108,4 +108,5 @@ if(!isset($_GET['numPag'])){
 
 <?php
 require_once("pie.php");
+$Objeto_conexion->cerrar();
 ?>

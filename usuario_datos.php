@@ -69,7 +69,8 @@ $usuarios = $Objeto_conexion->consultar($sql);
                     <a class="button" href="Admin_usuarios.php" style='padding: 10px 30px; font-size: 12px; margin-bottom: 5px; margin-left: 5px;'>Volver</a>
                 </div>
             </div>
-        <?php } ?>
+        <?php } 
+        $Objeto_conexion->cerrar();?>
     </form>
 
 </div>

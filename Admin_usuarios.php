@@ -50,4 +50,5 @@ foreach ($usuarios as $u) {
 ?>
 
 <?php
-require_once("pie.php"); ?>
+require_once("pie.php"); 
+$Objeto_conexion->cerrar();?>

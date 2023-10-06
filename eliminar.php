@@ -14,5 +14,5 @@ if(isset($_GET['user'])){
     $id = $_GET['user'];
     EliminarUsuario($id, $Objeto_conexion);
 }
-
+$Objeto_conexion->cerrar();
 //

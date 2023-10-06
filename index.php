@@ -8,7 +8,6 @@ require_once("ManipulacionDatos.php");
 
 $sql = "SELECT * FROM `entradas` WHERE papelera = false;";
 $entradas = $Objeto_conexion->consultar($sql);
-
 //REUNIR TODAS LAS ID PARA PODER CALCULAR EL TOTAL DE REGISTROS POR MEDIO DE COUNT()
 
 $arreglo_entradas_id = [];
@@ -61,4 +60,5 @@ require_once("entradas.php");
 <?php
 //PIE DE PAGINA
 require_once("pie.php");
+$Objeto_conexion->cerrar();
 ?>

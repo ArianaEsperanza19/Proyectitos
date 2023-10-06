@@ -34,6 +34,11 @@ $style = __DIR__.'\css\style.css';
     <a class="link" href="sobreMi.php"><li>Acerca de</li></a>
         
 </ul>
-    <div id="buscador"><form action="busqueda.php" method="post"><input type="text" name="busqueda" required><input class='button' style="padding: 3px 10px; font-size: 12px; margin-left: 5px" type="submit" name="buscar" value="Buscar"></form></div>
+    <div id="buscador">
+    <form action="busqueda.php" method="post">
+    <input type="text" name="busqueda" required>
+    <input class='button' style="padding: 3px 10px; font-size: 12px; margin-left: 5px" type="submit" name="buscar" value="Buscar">
+    </form>
+    </div>
     </nav>
     <div class="clearfix"> </div> 

@@ -38,5 +38,7 @@ Papelera de Entradas</a>
     } ?><br>
     <?php if (isset($_SESSION['idUser']) == $_SESSION['admin'] && $post != NULL) {
         echo $botonRojo;
-    } ?><br>
+    } 
+    $Objeto_conexion->cerrar();
+    ?><br>
 </div>

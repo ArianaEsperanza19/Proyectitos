@@ -110,7 +110,9 @@ $categorias = $Objeto_conexion->consultar($sql);
                                                                         echo "selected";
                                                                     } ?>><?php echo $categoria['nombres']; ?></option>
         <?php }
-        } ?>
+        } 
+        $Objeto_conexion->cerrar();
+        ?>
         </select><br>
         IMAGEN: <input type="file" name='img'>
         <br>

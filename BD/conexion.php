@@ -31,4 +31,9 @@ class Conexion
         $sentencia->execute();
         return $sentencia->fetchAll();
     }
+
+    public function cerrar()
+    {
+        $this->conexion = null;
+    }
 }

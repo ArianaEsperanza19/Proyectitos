@@ -45,4 +45,5 @@ foreach ($entradas as $u) {
     echo "
     </div></div><br>";
 }
+$Objeto_conexion->cerrar();
 ?>

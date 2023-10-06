@@ -83,4 +83,6 @@ foreach ($usuarios as $u) {
     //CERRAR DIVS
     echo "
     </div></div><br>";
+    
 }}
+$Objeto_conexion->cerrar();

@@ -31,4 +31,5 @@ $entradas = $Objeto_conexion->consultar($sql);
 
 <?php
 require_once("pie.php");
+$Objeto_conexion->cerrar();
 ?>

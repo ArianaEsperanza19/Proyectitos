@@ -68,4 +68,5 @@ if ($_POST) {
 
 <?php
 require_once("pie.php");
+$Objeto_conexion->cerrar();
 ?>
