@@ -29,4 +29,3 @@ Caracteres que pueden romper el texto
 Si en una cadena se encuentra uno de estos elementos, anteponerle una \
 
 //Al editar la imagen, borrar la imagen anterior de la carpeta img
-//Cerrar conexion de las funciones exclusivas del admin

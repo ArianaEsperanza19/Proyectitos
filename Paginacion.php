@@ -39,4 +39,4 @@
     //SI NO SE RECIBE ENTONCES EL NUMERO DE PAGINA ES = NULL 
     $entradas = Paginar($numPag, $arreglo_entradas_id, $Objeto_conexion);
 }
-$Objeto_conexion->cerrar();
+

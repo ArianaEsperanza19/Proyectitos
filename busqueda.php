@@ -1,11 +1,10 @@
 <?php
-if(!isset($_SESSION)){
-    session_start();
-}
 require_once("cabecera.php");
 require_once("ModelarDatos.php");
 require_once("ManipulacionDatos.php");
-
+if(!isset($_SESSION)){
+    session_start();
+}
 $arreglo_entradas_id = [];
 $input = null;
 $alert = false;
