@@ -1,0 +1,68 @@
+.button {
+    padding: 8px 18px;
+    background-color: #1e1e1e;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.letra {
+    color: white;
+}
+
+
+.info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #514f4f;
+    width: 300px;
+    padding: 10px;
+}
+
+.info-container label {
+    width: 100px;
+    font-weight: bold;
+}
+
+.barra {
+    height: 60px;
+    background-color: #514f4f;
+    margin: 0;
+    margin-bottom: 20px;
+    border-top: #1e1e1e 5px solid;
+    border-bottom: #1e1e1e 5px solid;
+    text-align: left;
+}
+
+#buscador{
+    position:absolute;
+    top: 25px;
+    left: 900px;
+}
+
+#botones-barra{
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+
+#botones{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    position: absolute;
+    top: 0px;
+    left: 40px;
+
+}
+
+#Clientes
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+}

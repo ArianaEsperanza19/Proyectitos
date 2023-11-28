@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="..\Vistas\css\FormularioNuevoProducto.css"/>
+    <meta charset="UTF-8"/>
+    <title>Formulario</title>
+  </head>
+  <body class="index_body">
+    <form action="../Acciones/RegistrarProducto.php" method="post">
+      <div id="a">
+        <label for="nombre">Nombre:</label>
+        <label for="precioDetal">Precio al Detal:</label>
+        <label for="costoMayor">Costo al Mayor:</label>
+        <label for="cantidad">Cantidad:</label>
+        <label for="unidades">Unidades:</label>
+      </div>
+
+      <div id="b">
+        <p id="mensaje_nombre" class="ps"></p>
+        <input type="text" id="nombre" name="nombre" required /><br /><br />
+        <p id="mensaje_detal" class="ps"></p>
+        <input
+          type="number"
+          step="any"
+          id="precioDetal"
+          name="precioDetal"
+          required
+        /><br /><br />
+        <p id="mensaje_mayor" class="ps"></p>
+        <input
+          type="number"
+          step="any"
+          id="costoMayor"
+          name="costoMayor"
+          required
+        /><br /><br />
+        <p id="mensaje_cantidad" class="ps"></p>
+        <input
+          type="number"
+          step="any"
+          id="cantidad"
+          name="cantidad"
+          required
+        /><br /><br />
+        <p id="mensaje_unidades" class="ps"></p>
+        <input
+          type="number"
+          step="any"
+          id="unidades"
+          name="unidades"
+          required
+        /><br /><br />
+      </div>
+
+      <input class="button" id="submit" type="submit" value="Guardar" />
+      <a href="../Vistas/Panel-Productos.php" class='button' style="width: 40px; margin-left: 50px;">Volver</a>
+    </form>
+  </body>
+  <script src="js\FormularioNuevoProducto.js"></script>
+</html>

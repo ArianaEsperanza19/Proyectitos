@@ -1,0 +1,31 @@
+.container {
+    color: white;
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: #514f4f;
+    width: 300px;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-top: 10%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.container p{
+    font-size: 15px;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: #1e1e1e;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 5px;
+  }

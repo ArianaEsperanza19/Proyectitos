@@ -1,0 +1,97 @@
+.panelGridLayout {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin-top: 40px;
+  border-radius: 10px;
+
+}
+
+.subpanel {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.pie_panel {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px auto 210px;
+
+}
+
+.caja {
+  background-color: #514f4f;
+  flex: 1;
+  border-top: 1px solid white;
+  color: white;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 2px 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button2 {
+  padding: 8px 18px;
+  background-color: #1e1e1e;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#Boton {
+  position: absolute;
+  left: 60px;
+  top: 25px;
+  margin-right: 5px;
+
+}
+
+.barra {
+  height: 60px;
+  background-color: #514f4f;
+  margin: 0;
+  margin-bottom: 20px;
+  border-top: #1e1e1e 5px solid;
+  border-bottom: #1e1e1e 5px solid;
+  text-align: left;
+}
+
+#flecha {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  margin-right: 10px;
+}
+
+.Push{
+  color: white;
+  text-decoration: none;
+}
+
+.Push1{
+  color: white;
+  text-decoration: none;
+}
+
+.PushOver{
+  color: wheat;
+  text-decoration: none;
+}

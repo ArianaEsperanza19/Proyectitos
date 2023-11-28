@@ -1,0 +1,76 @@
+procesarDatosBrutosClientes en Ventas.php, LimpiarPedidoUsuario e infoPedidos.php
+decodificarJsonPedido en LimpiarPedidoUsuario
+decodificarArregloProductoCliente en infoPedidos.php
+ObtenerProductosCliente en incluirNuevoProducto.php
+ingresarProducto y ObtenerProductosCliente, actualizarExistencias en AgregarProducto.php
+decodificarArregloProductoCliente en EliminarUnProducto.php
+ganancias en Panel-ingresos.php
+
+
+Agregar a la tabla productos el campo "unidades"
+
+ALTER TABLE usuarios ADD COLUMN edad INT;
+
+CREATE TABLE usuarios (
+    nombre VARCHAR(50),
+    edad INT
+);
+
+X Agregar dos campos nuevos a los productos: existencias para medir cuanto de dicho producto queda 
+y total, el numero original de producto que habia, que esta en el json del campo "costo_pack". Este valor (existencias)
+se calculara mediante la informacion suministrada sobre el producto, luego se registrar en la DB 
+
+X Cada vez que se compre, el sistema restara el numero correspondiente a cada producto
+
+
+X Agregar boton "surtir" este boton multiplicara unidadesXpack por la cantidad del pack, este boton aparecera
+para los productos que esten en 0 existencias.
+
+
+X Que la pestana de finanzas se base en la tabla de registro_ventas
+X Panel para ver el registro de todos los pedidos finalizados
+X Buscador para filtrar la busqueda por intervalo de fechas (controlador Filtrar-Registros.php a Vistas/Registros-filtrados.php)
+X Dar formato al panel de registro filtrado
+X Boton para ver los detalles del pedido, semejante a infoPedidos
+Colocar info para indicar bajo que criterios se calcula la ganancia
+
+ALTER TABLE nombre_de_la_tabla ADD beneficio FLOAT;
+
+Crear campo en registro_ventas donde figurara el costo (costoXpack/numeroDunidades), esto debe ser calculado antes de guardar el registro en la base de datos. 
+ALTER TABLE nombre_de_la_tabla ADD costos FLOAT;
+Boton de Borrar elemento del registro, de forma permanente, con advertencia incluida.
+
+X Validar campo para las unidades en el formulario de nuevo producto
+X Verificar si un producto tiene existencias, 
+X si no tiene, entonces no aparecera para incluirse en un pedido nuevo o ya existente.
+X Si se borra un producto de un pedido, el numero se suma a las existencias
+
+
+agregar un nuevo boton que muestre las ventas realizadas.
+Que en cada barra muestre el id, nombre, fecha de pago y la ganancia.
+    sentencia sql para pedir el pedido de un cliente.
+    Calcular cuanto vale cada unidad del producto, es decir el precio al mayor de cada paquete entre las unidades.
+    multiplicar el numero del pedido por el precio del producto.
+    multiplicar el precio de la unidad por el numero del pedido.
+    Restar el costo de las unidades al total obtenedo de la venta del producto en cuestion.
+    Sumar el resultado al total.
+Agregar un buscador con dos campos de fechas, para filtrar los pedidos mediante el intervalo de fechas.
+
+
+ALTER TABLE nombre_tabla AUTO_INCREMENT = 1;
+
+
+
+
+
+
+
+error al tratar de subir a github. El error es: fatal: The current branch master has no upstream branch.      
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+Que puede estar pasando, y que solucion proponSes?
