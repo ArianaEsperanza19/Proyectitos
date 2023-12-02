@@ -1,0 +1,28 @@
+.info{
+    display: grid;
+    grid-template-columns: 300px 200px 200px;
+    grid-template-rows: 50px 200px 200px;
+    border: solid 1px #01B1EA;
+    margin: 20px;
+    width: 750px;
+    height: 350px;
+}
+
+.columna{
+    margin: 10px;
+    width: 200px;
+}
+
+.descripcion {
+    width: 250px;
+    height: 100px;
+    margin: 20px;
+    
+}
+
+.img {
+    height: 200px;
+    margin-bottom: 10px;
+    float: right;
+    
+}

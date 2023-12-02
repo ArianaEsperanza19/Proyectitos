@@ -18,7 +18,7 @@ Productos de la tienda:
     X formularios para crear nuevos productos, 
     X imagenes de productos,
     X Listado para mostrar productos
-    Pagina de informacion de cada producto (info.phtml)
+    X Pagina de informacion de cada producto (info.phtml)
 Carrito de compra con sesiones
     debe contar las unidades
     botones para sumar o restar unidades

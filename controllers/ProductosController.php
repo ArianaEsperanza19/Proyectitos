@@ -8,6 +8,16 @@ class ProductosController
 		require_once 'views/productos/NuestrosProductos.phtml';
 	}
 
+	public function info()
+	{
+		if($_GET){
+			$producto = isset($_GET['producto']) ? $_GET['producto'] : false;
+			$db = new ModeloDB();
+			$info = $db->conseguir('productos', '*', "id=$producto");
+			require_once "views/productos/info.phtml";
+		}
+	}
+
 	public function registrar()
 	{	//El presente metodo envia a la pagina para registrar nuevos productos.
 		require_once "models/utiles/verificarAdmin.php";

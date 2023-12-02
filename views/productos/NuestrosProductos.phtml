@@ -1,13 +1,16 @@
 <h1>Nuestros Productos</h1>
 					<?php 
 					foreach($productosRandom as $productos){
+						$id = $productos['id'];
 						$n = $productos['nombre'];
 						$p = $productos['precio'];
 						$img = $productos['imagen'];
 						$url_imagen = "/Proyectos/Tienda/assets/img/".$img;
+						$url_info = "?controller=Productos&action=info&producto=$id";
+						$redireccion = "<a href='$url_info'><img src='$url_imagen'/></a>";
 						echo "
 					<div class='product'>
-						<img src='$url_imagen' />
+						$redireccion
 						<h2>$n</h2>
 						<p>$p euros</p>
 						<a href='' class='button'>Comprar</a>
