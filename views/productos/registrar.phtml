@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/formulario_registro_producto.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Registrar Nuevo Producto</h1>
+        <?php
+        if (isset($_SESSION['register'])) :
+            require_once('./models/utiles/borrarSession.php');
+            if ($_SESSION['register']  == "completed") :
+                echo  "<strong><snag style='color:green'>• Registro completado con exito</snag></strong>";
+                borrarSession::borrar('register');
+            else :
+                if ($_SESSION['register']  == "failed") :
+                    echo  "<strong><snag style='color:red'>• Registro no guardado, verifica los datos</snag></strong>";
+                    borrarSession::borrar('register');
+                endif;
+            endif;
+
+        endif;
+
+        require_once 'models/categoria.php';
+			$categorias = new Categoria();
+			$listado = $categorias->listarTodos();
+        ?>
+        <form action="index.php?controller=Productos&action=guardarNuevo" method="post" enctype="multipart/form-data">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="precio">precio:</label>
+            <input type="number" id="precio" name="precio" required>
+
+            <label for="descripcion">Descripcion:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" required>
+
+            <label for="imagen">IMAGEN:</label>
+            <input type="file" name='imagen'>
+
+            <label for="categorias">Categorias: </label>
+            <select name="categorias" id="categorias">
+            <?php 
+            foreach ($listado as $categoria) { 
+                echo "<option value=";
+                echo $categoria['id'];  
+                echo ">";
+                echo $categoria['nombre']; ?></option>
+            <?php } ?>
+        </select>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>

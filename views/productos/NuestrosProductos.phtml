@@ -1,0 +1,39 @@
+<h1>Nuestros Productos</h1>
+					<?php 
+					foreach($productosRandom as $productos){
+						$n = $productos['nombre'];
+						$p = $productos['precio'];
+						$img = $productos['imagen'];
+						$url_imagen = "/Proyectos/Tienda/assets/img/".$img;
+						echo "
+					<div class='product'>
+						<img src='$url_imagen' />
+						<h2>$n</h2>
+						<p>$p euros</p>
+						<a href='' class='button'>Comprar</a>
+					</div>";
+					}
+					
+					?>
+					<div class="product">
+						<img src="assets/img/camiseta.png" />
+						<h2>Camiseta Azul Ancha</h2>
+						<p>30 euros</p>
+						<a href="" class="button">Comprar</a>
+					</div>
+
+					<div class="product">
+						<img src="assets/img/camiseta.png" />
+						<h2>Camiseta Azul Ancha</h2>
+						<p>30 euros</p>
+						<a href="" class="button">Comprar</a>
+					</div>
+
+					<div class="product">
+						<img src="assets/img/camiseta.png" />
+						<h2>Camiseta Azul Ancha</h2>
+						<p>30 euros</p>
+						<a href="" class="button">Comprar</a>
+					</div>
+
+				</div>

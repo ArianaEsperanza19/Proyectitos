@@ -1,0 +1,11 @@
+.form-container {
+    border: 1px solid #01B1EA;;
+    padding: 20px;
+}
+.form-container input {
+    display: block;
+    margin-bottom: 10px;
+}
+.miniatura{
+    width: 100px;
+}

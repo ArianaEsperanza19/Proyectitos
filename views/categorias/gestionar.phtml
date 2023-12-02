@@ -1,0 +1,36 @@
+<h1>Gestionar Categorías</h1>
+<?php 
+require_once('./models/utiles/mensajesEmergentes.php');
+mensajesEmergentes::borrar();
+mensajesEmergentes::editar();
+?>
+<table border='1'>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th><a href='index.php?controller=Categorias&action=registrar' style='text-decoration: none'>+Crear+</a></th>
+  </tr>
+
+  <?php
+  //<link rel="stylesheet" href="assets/css/styles.css" />
+  if($datos){
+    foreach ($datos as $c) {
+      $id = $c['id'];
+      $n = $c['nombre'];
+      $borrar = "<a href='index.php?controller=Categorias&action=borrar&id=$id' style='text-decoration: none'>Borrar</a>";
+      $editar = "<a href='index.php?controller=Categorias&action=editar&id=$id' style='text-decoration: none'>Editar</a>";
+      echo "
+  
+    <tr>
+      <td>$n</td>
+      <td>$borrar</td>
+      <td>$editar</td>
+    </tr>";
+    }
+  }else{
+    echo 'Sin categorias en la base de datos';
+  }
+  
+  ?>
+
+</table>

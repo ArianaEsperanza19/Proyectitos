@@ -1,0 +1,47 @@
+X crear base de datos
+X maquetacion basica
+X Estructura MVC
+X registro de usuarios
+X login de usuarios
+X Login de contrase;a cifrada
+validacion de datos de usuario
+validacion de datos de productos
+sistema de categorias
+X crear
+X borrar
+X editar
+Productos de la tienda: 
+    X gestion de productos,
+    X crear
+    X borrar
+    X editar 
+    X formularios para crear nuevos productos, 
+    X imagenes de productos,
+    X Listado para mostrar productos
+    Pagina de informacion de cada producto (info.phtml)
+Carrito de compra con sesiones
+    debe contar las unidades
+    botones para sumar o restar unidades
+Gestion de pedidos
+    Hacer pedido
+    Cambiar esto del pedido
+    Terminar o modificar pedido
+    Pagina para mostrar detalles del pedido
+
+Admin contrase;a 123
+Gloria contrasena gloria
+DonaldJ@gmail.com donald
+
+pendiente: Colocar un mensaje cuando el usuario falle al loguearse, mediante el objeto mensajesEmergentes de la carpeta utiles.
+Permitir que se creen productos sin imagen y si no hay imagen, colocar img 'none'
+Configurar la pagina de nuestros productos para que no explote si no hay productos en la base de datos
+
+Nota el "git config core.autocrlf false" se encuentra en falso.
+git clone https://github.com/ArianaEsperanza19/Proyectitos/main
+
+git config --global user.name "ArianaEsperanza19"
+git config --global user.email "UribeAtencio2021@gmail.com"
+git config --global push.default main
+git config --global push.default current
+
+Falta por validar los formularios y hacer l logica dl carro d compras como de la gestion de pedidos.

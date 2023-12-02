@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/formulario_registro_usuario.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Registrarse</h1>
+        <?php
+        require_once('./models/utiles/mensajesEmergentes.php');
+        mensajesEmergentes::guardado();
+        ?>
+        <form action="index.php?controller=Usuarios&action=guardarNuevo" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="rol">Rol:</label>
+            <input type="text" id="rol" name="rol" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+
+            <label for="repetir-contrasena">Repetir Contraseña:</label>
+            <input type="password" id="repetir-contrasena" name="repetir-contrasena" required>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>

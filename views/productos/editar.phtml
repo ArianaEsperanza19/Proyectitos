@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/formulario_registro_producto.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Editar Producto</h1>
+        <?php
+        if (isset($_SESSION['edition'])) :
+            require_once('./models/utiles/borrarSession.php');
+            if ($_SESSION['edition']  == "completed") :
+                echo  "<strong><snag style='color:green'>• Registro editado con exito</snag></strong>";
+                borrarSession::borrar('edition');
+            else :
+                if ($_SESSION['edition']  == "failed") :
+                    echo  "<strong><snag style='color:red'>• No se pudo editar el producto, verifica los datos</snag></strong>";
+                    borrarSession::borrar('edition');
+                endif;
+            endif;
+
+        endif;
+
+        require_once 'models/categoria.php';
+        $categorias = new Categoria();
+        $listado = $categorias->listarTodos();
+        foreach ($datos as $i) {
+            $id = $i['id'];
+            $n = $i['nombre'];
+            $p = $i['precio'];
+            $d = $i['descripcion'];
+            $s = $i['stock'];
+            $c = $i['categoria_id'];
+            $img = $i['imagen'];
+        }
+        $direccion = "index.php?controller=Productos&action=sobreescribir&id=$id";
+        ?>
+        <form action=<?php echo $direccion ?> method="post" enctype="multipart/form-data">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="<?php echo $n ?>" value="<?php echo $n ?>" required>
+
+            <label for="precio">precio:</label>
+            <input type="number" id="precio" name="precio" placeholder="<?php echo $p ?>" value="<?php echo $p ?>" required>
+
+            <label for="descripcion">Descripcion:</label>
+            <textarea id="descripcion" name="descripcion" placeholder="<?php echo $d ?>" required><?php echo $d ?></textarea>
+
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" placeholder="<?php echo $s ?>" value="<?php echo $s ?>" required>
+
+            <label for="imagen">IMAGEN:</label>
+            <img src="<?php echo "/Proyectos/Tienda/assets/img/".$img ?>" class="miniatura" '/>
+            <input type="file" name='imagen'>
+
+            <label for="categorias">Categorias: </label>
+            <select name="categorias" id="categorias">
+                <?php
+                foreach ($listado as $categoria) {
+                    if ($categoria['id'] == $c) {
+                        echo "<option value=";
+                        echo $categoria['id'];
+                        echo " selected>";
+                        echo $categoria['nombre'];
+                    } else {
+                        echo "<option value=";
+                        echo $categoria['id'];
+                        echo ">";
+                        echo $categoria['nombre'];
+                        echo "</option>";
+                    }
+                
+                    } ?>
+            </select>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>

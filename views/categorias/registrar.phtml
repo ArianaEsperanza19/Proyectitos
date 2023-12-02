@@ -1,0 +1,38 @@
+<?php
+
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/formulario_registro_categoria.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Registrar Nueva Categoria</h1>
+        <?php
+        if (isset($_SESSION['register'])) :
+            require_once('./models/utiles/borrarSession.php');
+            if ($_SESSION['register']  == "completed") :
+                echo  "<strong><snag style='color:green'>• Registro completado con exito</snag></strong>";
+                borrarSession::borrar('register');
+            else :
+                if ($_SESSION['register']  == "failed") :
+                    echo  "<strong><snag style='color:red'>• Registro no guardado, verifica los datos</snag></strong>";
+                    borrarSession::borrar('register');
+                endif;
+            endif;
+
+        endif;
+        ?>
+        <form action="index.php?controller=Categorias&action=guardarNuevo" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>

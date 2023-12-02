@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/formulario_registro_categoria.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Editar Categoria</h1>
+        <?php
+        if (isset($_SESSION['edicion'])) :
+            require_once('./models/utiles/borrarSession.php');
+            if ($_SESSION['edicion']  == "completed") :
+                echo  "<strong><snag style='color:green'>• Registro editado con exito</snag></strong>";
+                borrarSession::borrar('edicion');
+            else :
+                if ($_SESSION['edicion']  == "failed") :
+                    echo  "<strong><snag style='color:red'>• Edicion fallida, verifica los datos</snag></strong>";
+                    borrarSession::borrar('edicion');
+                endif;
+            endif;
+
+        endif;
+
+        foreach($datos as $j){
+            $id = $j['id'];
+            $n = $j['nombre'];
+        }
+        $direccion = "index.php?controller=Categorias&action=sobreescribir&id=$id";
+        ?>
+
+        <form action="<?= $direccion ?>" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="<?= $n ?>" value="<?= $n ?>" required>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<h1>Productos Filtrados para <?= $nombre ?></h1>
+<?php 
+					foreach($datos as $productos){
+						$n = $productos['nombre'];
+						$p = $productos['precio'];
+						$img = $productos['imagen'];
+						$url_imagen = "/Proyectos/Tienda/assets/img/".$img;
+						echo "
+					<div class='product'>
+						<img src='$url_imagen' />
+						<h2>$n</h2>
+						<p>$p euros</p>
+						<a href='' class='button'>Comprar</a>
+					</div>";
+					}
+					
+					?>
+
+				</div>
