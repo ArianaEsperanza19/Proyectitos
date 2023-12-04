@@ -45,3 +45,4 @@ git config --global push.default main
 git config --global push.default current
 
 Falta por validar los formularios y hacer l logica dl carro d compras como de la gestion de pedidos.
+

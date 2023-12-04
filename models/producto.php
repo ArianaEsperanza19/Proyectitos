@@ -114,6 +114,7 @@ class Producto extends conseguirTodos{
 					move_uploaded_file($imagenTemporal, "assets/img/" . $i);
 			}
 		}
+		$db->cerrar();
 		return $resultado;
 	}
 
@@ -162,6 +163,7 @@ class Producto extends conseguirTodos{
 		}
 
 		$resultado = $db->ejecutar($sql);
+		$db->cerrar();
 		if($resultado){
 			if (file_exists($directorio . $original_img)) {
 				unlink($directorio . $original_img);
@@ -169,6 +171,13 @@ class Producto extends conseguirTodos{
 			}
 		}
 		return $resultado;
+	}
+
+	public function conseguirUno($id){
+		$db = new ModeloDB();
+		$producto = $db->conseguir('productos','*',"id=$id");
+		$db->cerrar();
+		return $producto;
 	}
 }
 

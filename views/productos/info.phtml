@@ -18,7 +18,7 @@
             $s = $i['stock'];
             $c = $i['categoria_id'];
             $img = $i['imagen'];
-
+            $carrito = "href='?controller=Carrito&action=agregar&producto=$id'";
             echo "<h1>Producto #$id</h1>";
             echo "<div class='info'>";
             echo "<p class='columna'><strong>Nombre:</strong> $n</p>";
@@ -37,7 +37,7 @@
             <p class='columna' style='margin: 20px'><strong>Descripcion:</strong></p>
             <p class='descripcion'><?= $d ?></p>
     </div>
-        
+    <a <?= $carrito ?> >Carrito</a>
     </div>
 </body>
 
