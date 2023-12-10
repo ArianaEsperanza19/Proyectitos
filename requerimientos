@@ -46,3 +46,6 @@ git config --global push.default current
 
 Falta por validar los formularios y hacer l logica dl carro d compras como de la gestion de pedidos.
 
+json de prueba
+{"id_producto":"4","precio":"40.00","unidades":1,"objeto":{"queryString":"SELECT * FROM productos WHERE id=4;"}}
+

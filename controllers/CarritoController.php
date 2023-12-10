@@ -14,51 +14,30 @@ class CarritoController {
             $id_producto = isset($_GET['producto']) ? $_GET['producto'] : false;
             if($id_producto){
                 require_once "models/producto.php";
+                require_once "models/carrito.php";
                 $producto = new Producto();
                 $datos = $producto->conseguirUno($id_producto);
                 $precio = $datos->fetchColumn(3);
-                if(@isset($_SESSION['carrito'])){
-                   echo 'hay session';
-                   
+                $carrito = new Carrito();
+                $carrito->setId_producto($id_producto);
+                $carrito->set_datos($datos);
+                $carrito->set_precio($precio);
+                
+                if(isset($_SESSION['carrito'])){
+                    $nuevo_carrito = $carrito->agregar();
                 }else{
-                    echo 'no hay session';
-                    $_SESSION['carrito'] = array(
-                        "id_producto" => $id_producto,
-                        "precio" => $precio,
-                        "unidades" => 1,
-                        "objeto" => $datos
-                    );
-
-                    
-
+                    $nuevo_carrito = $carrito->agregar_primero();
                 }
-                var_dump($_SESSION['carrito']);
                 
-                        /*$nuevo = array(
-                            "id_producto" => $id_producto,
-                            "precio" => $precio,
-                            "unidades" => 1,
-                            "objeto" => $datos
-                        );
-                        */
-               
-                    //echo "<pre>";print_r($_SESSION['carrito']);echo "</pre>";
-                    
 
-                    //$nuevo = array_push($_SESSION['carrito'], $nuevo);
-                    //$_SESSION['carrito'] = $nuevo;
-                    
-                
-                    //echo "<pre>";print_r($_SESSION['carrito']);echo "</pre>";
+
+                } else{
+                    header("Location: index.php?controller=Productos&action=index");
                 }
-                //echo "<pre>";print_r($_SESSION['carrito']);echo "</pre>";
-            }}
-        //else{
-            //header("Location: index.php?controller=Productos&action=index");
-        //}
-
-		
-	
+                
+                }
+                
+            }
 
     public function quitar(){
 
@@ -68,5 +47,9 @@ class CarritoController {
         require_once "models/utiles/borrarSession.php";
         borrarSession::borrar('carrito');
         header("Location: index.php?controller=Productos&action=index");
+    }
+
+    public function ver(){
+        echo "<pre>";print_r($_SESSION['carrito']);echo "</pre>";
     }
 }
