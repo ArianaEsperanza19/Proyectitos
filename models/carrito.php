@@ -49,7 +49,8 @@ class Carrito{
     }
 
 	#Agregar un producto al carrito
-    public function agregar(){
+    public function agregar()
+    {
 
         $id_producto = $this->id_producto;
         $datos =  $this->datos;
@@ -68,6 +69,7 @@ class Carrito{
             if($centinela == true){
                 //print_r("actualizar producto. Centinela es: $centinela"."<br>");
                 $actualizacion = $this->verificarProducto($datos_carrito);
+                //echo "<pre>";print_r($actualizacion);echo "</pre>";
                 //print_r("ACTUALIZACION"); 
                 //echo "<pre>";print_r($actualizacion);echo "</pre>";
             }else{
@@ -84,22 +86,45 @@ class Carrito{
             $_SESSION['carrito'] = $actualizacion;
 
         
-}
+    }
 
-public function agregar_primero(){
-    //echo 'no hay session';
-    $id_producto = $this->id_producto;
-    $datos =  $this->datos;
-    $precio = $this->precio;
-            $nuevo = [
-                "id_producto" => $id_producto,
-                "precio" => $precio,
-                "unidades" => 1,
-                "objeto" => $datos
-            ];
-            $nuevo = json_encode($nuevo);
-            $_SESSION['carrito'] = $nuevo;
-}
+    public function eliminar()
+    {
+        //Devuelve un objeto json
+        $id_producto = $this->id_producto;
+        $carrito = $_SESSION['carrito'];
+        require_once("models/utiles/JsonManager.php");
+        JsonManager::set_json($carrito);
+        $carrito = JsonManager::decodificar();
+        $indice = 0;
+        $centinela = false;
+        foreach($carrito as $producto){
+            if($producto->id_producto == $id_producto){
+                $centinela = true;
+                break;
+            }
+            $indice ++;
+        }
+        array_splice($carrito, $indice, 1);
+        JsonManager::set_json($carrito);
+        $carrito = JsonManager::codificar();
+        return $carrito;
+    }
+
+    public function agregar_primero(){
+        //echo 'no hay session';
+        $id_producto = $this->id_producto;
+        $datos =  $this->datos;
+        $precio = $this->precio;
+                $nuevo = [
+                    "id_producto" => $id_producto,
+                    "precio" => $precio,
+                    "unidades" => 1,
+                    "objeto" => $datos
+                ];
+                $nuevo = json_encode($nuevo);
+                $_SESSION['carrito'] = $nuevo;
+    }
 
 public function verificarProductos($datos_carrito){
         $id_producto = $this->id_producto;
@@ -131,9 +156,6 @@ public function verificarProductos($datos_carrito){
         
         return $carrito;
         }
-
-        
-    
 
 
 public function verificarProducto($datos_carrito){
@@ -189,7 +211,64 @@ public function guardarTodo($datos_session, $nuevo){
 }
 
 public function remover(){
+    $id_producto = $this->id_producto;
+    if(isset($_SESSION['carrito'])){
+        require_once("models/utiles/JsonManager.php");
+        $datos = $_SESSION['carrito'];
+        JsonManager::set_json($datos);
+        $session = JsonManager::decodificar();
 
+        foreach($session as $producto){
+            if(is_object($producto)){
+                if (@$producto->id_producto == $id_producto && $producto->unidades > 1) {
+                    //echo "<pre>";print_r($producto->unidades);echo "</pre>";
+                    $producto->unidades = $producto->unidades - 1;
+                }
+            }else{
+
+                if ($session->id_producto == $id_producto && $session->unidades > 1) {
+                    //echo "<pre>";print_r($producto->unidades);echo "</pre>";
+                    $session->unidades = $session->unidades - 1;
+                    break;
+                }
+                echo "<pre>";print_r($session->unidades);echo "</pre>";
+
+            }
+        }
+        return $session;
+    }
+}
+
+public function sumar(){
+    $id_producto = $this->id_producto;
+    if(isset($_SESSION['carrito'])){
+        require_once("models/utiles/JsonManager.php");
+        $datos = $_SESSION['carrito'];
+        JsonManager::set_json($datos);
+        $session = JsonManager::decodificar();
+        $centinela = false;
+        foreach($session as $producto){
+            if(is_object($producto)){
+                if (@$producto->id_producto == $id_producto && $producto->unidades >= 1) {
+                    //echo "<pre>";print_r($producto->unidades);echo "</pre>";
+                    $producto->unidades = $producto->unidades + 1;
+                }
+            }else{
+
+                if ($session->id_producto == $id_producto  && $session->unidades >= 1) {
+                    //echo "<pre>";print_r($session->unidades);echo "</pre>";
+                    $centinela = true;
+                    break;
+                }
+                //echo "<pre>";print_r($session->unidades);echo "</pre>";
+
+            }
+        }
+        if($centinela == true){
+            $session->unidades = $session->unidades + 1;
+        }
+        return $session;
+    }
 }
 
 public function ver(){
@@ -197,10 +276,51 @@ public function ver(){
         require_once("models/utiles/JsonManager.php");
         $datos = $_SESSION['carrito'];
         JsonManager::set_json($_SESSION['carrito']);
-        //$datos = JsonManager::decodificar();
-        echo "<pre>";print_r($datos);echo "</pre>";
+        $datos = JsonManager::decodificar();
+        return $datos;
     }
 }
+
+public function verificarProducto1()
+    {
+        $id_producto = $this->id_producto;
+        $datos =  $this->datos;
+        $precio = $this->precio;
+        
+        if(isset($_SESSION['carrito'])){
+            require_once("models/utiles/JsonManager.php");
+            $session = $_SESSION['carrito'];
+            JsonManager::set_json($datos);
+            $session = JsonManager::decodificar();
+            foreach($session as $producto){
+                if(is_object($producto)){
+                    //echo "<pre>";print_r($producto->unidades);echo "</pre>";
+                    if (@$producto->id_producto == $id_producto) 
+                    {
+                        #Si esta en el carrito;
+                        $producto->unidades = $producto->unidades + 1;
+                        return $session;
+                    }
+                        #Si NO esta en el carrito
+                        $nuevoProducto = [
+                            "id_producto" => $id_producto,
+                            "precio" => $precio,
+                            "unidades" => 1,
+                            "objeto" => $datos
+                        ];
+                        $carrito = $this->guardarTodo($session, $nuevoProducto);
+                        return $carrito;
+                }else{
+                    #si NO ES UN OBJETO
+                    if ($session->id_producto == $id_producto) {
+                        //echo "<pre>";print_r($producto->unidades);echo "</pre>";
+                        $session->unidades = $session->unidades + 1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
 }
 

@@ -1,0 +1,70 @@
+<?php
+//echo "<pre>";print_r($datos);echo "</pre>";
+$borrar_todo = "?controller=Carrito&action=borrarTodo";
+?>
+
+<table border='1'>
+<tr>
+    <th>ID</th>
+    <th>Precio</th>
+    <th>Unidades</th>
+    <th></th>
+    <th></th>
+    <?php
+    if(isset($_SESSION['carrito'])){
+        echo "<th><a style='' href='$borrar_todo'>Borrar Carrito</a></th>";
+    } ?>
+</tr>
+<?php
+if(isset($_SESSION['carrito'])){
+    $session = $_SESSION['carrito'];
+    require_once "models/utiles/JsonManager.php";
+    JsonManager::set_json($session);
+    $session = JsonManager::decodificar();
+    #verificar si es un solo producto
+    if(is_object($session)){
+        $id = $session->id_producto;
+        $p = $session->precio;
+        $u = $session->unidades;
+        $quitar_producto = "?controller=Carrito&action=quitar&producto=$id";
+        $sumar_producto = "?controller=Carrito&action=poner&producto=$id";
+        $borrar_producto = "?controller=Carrito&action=borrarUno&producto=$id";
+        echo 
+            "
+            <tr>
+            <td>$id</td>
+            <td>$p</td>
+            <td>$u</td>
+            <td><a href='$quitar_producto'>-1</a></td>
+            <td><a href='$sumar_producto'>+1</a></td>
+            <td><a href='$borrar_producto'>Borrar</a></td>
+            </tr>
+            ";
+    }else{
+        foreach($datos as $producto){
+            $id = $producto->id_producto;
+            $p = $producto->precio;
+            $u = $producto->unidades;
+            $quitar_producto = "?controller=Carrito&action=quitar&producto=$id";
+            $sumar_producto = "?controller=Carrito&action=poner&producto=$id";
+            $borrar_producto = "?controller=Carrito&action=borrarUno&producto=$id";
+            echo 
+            "
+            <tr>
+            <td>$id</td>
+            <td>$p</td>
+            <td>$u</td>
+            <td><a href='$quitar_producto'>-1</a></td>
+            <td><a href='$sumar_producto'>+1</a></td>
+            <td><a href='$borrar_producto'>Borrar</a></td>
+            </tr>
+            ";
+        }
+    }
+    
+}else{
+    echo "El carrito esta vacio";
+}
+?>
+
+</table>

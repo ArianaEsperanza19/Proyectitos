@@ -20,8 +20,10 @@ Productos de la tienda:
     X Listado para mostrar productos
     X Pagina de informacion de cada producto (info.phtml)
 Carrito de compra con sesiones
-    debe contar las unidades
-    botones para sumar o restar unidades
+    X debe contar las unidades
+    X botones para sumar o restar unidades
+    X funcion de quitar o poner unidades
+    borrar producto
 Gestion de pedidos
     Hacer pedido
     Cambiar esto del pedido
@@ -45,7 +47,18 @@ git config --global push.default main
 git config --global push.default current
 
 Falta por validar los formularios y hacer l logica dl carro d compras como de la gestion de pedidos.
-
+Mejorar el sistema de agregar producto
 json de prueba
 {"id_producto":"4","precio":"40.00","unidades":1,"objeto":{"queryString":"SELECT * FROM productos WHERE id=4;"}}
 
+
+errores
+borrar normal true
+borrar luego de aumentar 5 unidades FALSE
+borrar luego de restar 5 unidades true
+borrar luego de sumar y restar al menos una unidad true
+borrar teniendo mas de dos productos y habiendo sumado 5 o mas unidades FALSE
+borrar un elemento entre al menos 5 productos, teniendo menos de 5 unidades en cada uno FALSE
+
+Mejorar el sistema para aumentar el numero de cada producto, al cambiarlo mucho se rompe el json
+Corregir cuando se intenta borrar el ultimo producto, para que no pueda
