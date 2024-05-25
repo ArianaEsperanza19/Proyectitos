@@ -15,7 +15,7 @@ if($_GET)
     $nombre = $data['nombre'];
     $pedido = $data['pedido'];
     $fecha = $data['quincena'];
-    $sql = "INSERT INTO registro_ventas (id_cliente, nombre, pedido, fecha) VALUES ($id, '$nombre', '$pedido', '$fecha');";
+    $sql = "INSERT INTO registro_ventas (id, nombre, pedido, fecha) VALUES ($id, '$nombre', '$pedido', '$fecha');";
     $conexion->ejecutar($sql);
     $sql = "DELETE FROM CLIENTES WHERE id=$id";
     $conexion->ejecutar($sql);

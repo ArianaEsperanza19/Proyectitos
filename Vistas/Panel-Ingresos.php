@@ -45,7 +45,7 @@ foreach ($consulta as $pack) {
       <?php
       $total = 0;
       foreach ($Clientes as $Client) {
-        $id = $Client['id_cliente'];
+        $id = $Client['id'];
         $nombre = $Client['nombre'];
         $producto = $Client['pedido'];
         decodificarArregloProductoCliente::set_conexion($conexion);

@@ -38,7 +38,7 @@
     $GananciaNeta = 0;
     if (isset($registros)) {
       foreach ($registros as $cliente) {
-        $idCl = $cliente['id_cliente'];
+        $idCl = $cliente['id'];
         $nombre = $cliente['nombre'];
         $quincena = $cliente['fecha'];
         $productoPedido = $cliente['pedido'];
