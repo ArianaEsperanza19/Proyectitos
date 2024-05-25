@@ -1,0 +1,3 @@
+/*
+Dividir un numero sin usar el simbolo de division ni multiplicacion.
+*/
